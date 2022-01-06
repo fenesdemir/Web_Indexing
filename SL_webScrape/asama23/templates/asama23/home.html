@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asama23</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+        }
+
+        #main {
+            text-align: center;
+            padding-top: 100px;
+        }
+        #url1 {
+            text-align: center;
+            padding-top: 100px;
+        }
+        #url2 {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type='text'] {
+            width: 30%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+
+        input[type='submit'] {
+            width: 30%;
+            padding: 5px;
+            background: black;
+            color: white;
+            text-transform: uppercase;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="main" >
+    <h1>ASAMA-23</h1>
+    <form method = "GET">
+        <label for="uTs1"></label>
+        <input type="text" name="url_to_scrape1" id="uTs1" placeholder="url1..."><br>
+        <label for="uTs2"></label>
+        <input type="text" name="url_to_scrape2" id="uTs2" placeholder="url2..."><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="url1">
+        {% if frequencies1 %}
+            <h2>Url-1</h2>
+            {% for freq1 in frequencies1 %}
+                <p>{{freq1}}</p>
+            {% endfor %}
+            <h2>Url-1'in Url-2'ye Benzerlik Oranı</h2>
+            <p>{{score12}}</p>
+        {% endif %}
+    </div>
+    <div id="url2">
+        {% if frequencies2 %}
+            <h2>Url-2</h2>
+            {% for freq2 in frequencies2 %}
+                <p>{{freq2}}</p>
+            {% endfor %}
+            <h2>Url-2'in Url-1'e Benzerlik Oranı</h2>
+            <p>{{score21}}</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
